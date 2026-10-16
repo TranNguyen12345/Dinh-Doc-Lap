@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinh Độc Lập - Di Tích Lịch Sử Đặc Biệt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        .map-box { height: 300px; width: 100%; }
+    </style>
+</head>
+<body class="bg-[#FFFBF0] text-[#1A202C] min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-[#9B2C2C] text-white shadow-md py-4 px-6">
+        <div class="max-w-4xl mx-auto flex items-center space-x-3">
+            <i class="fa-solid fa-landmark text-2xl text-[#D69E2E]"></i>
+            <h1 class="text-xl font-bold">Dinh Độc Lập (Hội Thống Nhất)</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-1 space-y-6 w-full">
+        <!-- Image Banner -->
+        <div class="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-lg">
+            <img src="dinh-doc-lap.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent flex items-end p-6">
+                <div>
+                    <span class="px-3 py-1 bg-[#9B2C2C] text-white text-xs font-semibold rounded-full uppercase">Di tích Lịch sử Đặc biệt</span>
+                    <h1 class="text-2xl md:text-4xl font-bold text-white mt-2">Dinh Độc Lập</h1>
+                    <p class="text-gray-200 text-sm mt-1"><i class="fa-solid fa-location-dot text-[#D69E2E] mr-2"></i>135 Nam Kỳ Khởi Nghĩa, Phường Bến Thành, Quận 1</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio Section -->
+        <div class="bg-[#9B2C2C] text-white p-5 rounded-xl shadow flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-headphones text-2xl text-[#D69E2E]"></i>
+                <div><h4 class="font-bold">Thuyết Minh Audio</h4><p class="text-xs text-red-200">Nghe giới thiệu kiến trúc Dinh Độc Lập</p></div>
+            </div>
+            <div class="flex space-x-2">
+                <button onclick="speakText('Dinh Độc Lập do kiến trúc sư Ngô Viết Thụ thiết kế theo phong cách kiến trúc hiện đại, kết hợp hài hòa với các yếu tố văn hóa và triết lý phương Đông. Công trình nổi bật với bố cục không gian cân bằng, hệ mành trúc che nắng độc đáo, hành lang đệm thông thoáng, cùng hệ thống hầm ngầm kiên cố bên dưới.')" class="px-4 py-2 bg-[#D69E2E] text-[#1A202C] font-bold rounded-lg text-sm hover:bg-yellow-400 transition"><i class="fa-solid fa-play mr-1"></i> Phát</button>
+                <button onclick="stopSpeech()" class="px-4 py-2 bg-white/20 rounded-lg text-sm hover:bg-white/30 transition"><i class="fa-solid fa-stop mr-1"></i> Dừng</button>
+            </div>
+        </div>
+
+        <!-- Details -->
+        <div class="bg-white p-6 rounded-xl shadow-sm space-y-6">
+            <h3 class="font-bold text-xl text-[#9B2C2C] border-b pb-2">Giới Thiệu Chi Tiết</h3>
+            
+            <p class="text-gray-700 leading-relaxed">
+                Dinh được xây dựng theo phong cách kiến trúc hiện đại, kết hợp hài hòa với các yếu tố văn hóa phương Đông dưới bàn tay tài hoa của <strong>KTS Ngô Viết Thụ</strong>. Công trình hạn chế những chi tiết trang trí cầu kỳ, thay vào đó chú trọng hình khối, đường nét, công năng và sự thông thoáng.
+            </p>
+
+            <!-- Section 1 -->
+            <div class="space-y-3">
+                <h4 class="font-bold text-gray-900 text-lg flex items-center">
+                    <i class="fa-solid fa-shapes text-[#9B2C2C] mr-2"></i> 1. Bố cục tổng thể & Khối tích không gian
+                </h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2 leading-relaxed">
+                    <li><strong>Hình khối cân bằng và đối xứng:</strong> Toàn bộ công trình được thiết kế theo dạng khối hình chữ nhật phát triển theo chiều ngang, tạo cảm giác bề thế, uy nghi nhưng vẫn cân đối.</li>
+                    <li><strong>Tổ chức quy hoạch mở:</strong> Dinh nằm ở trung tâm của một khuôn viên cây xanh rộng lớn (12 ha), được bao quanh bởi các tuyến đường lớn. Điểm nhấn phía trước là thảm cỏ hình tròn cùng hồ phun nước lớn, đóng vai trò như một "khoảng đệm" thị giác giúp tôn vinh chiều sâu của công trình.</li>
+                    <li><strong>Phân tầng chức năng rõ ràng:</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1">
+                            <li><em>Khối đế:</em> Kiên cố, tiếp xúc trực tiếp với mặt đất.</li>
+                            <li><em>Khối thân (Thang chính & Các phòng làm việc):</em> Mở rộng với hệ hành lang thoáng mát.</li>
+                            <li><em>Khối mái (Lầu Tứ Phương):</em> Đặt ở vị trí cao nhất, mang tính điểm nhấn.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="space-y-3">
+                <h4 class="font-bold text-gray-900 text-lg flex items-center">
+                    <i class="fa-solid fa-wind text-[#9B2C2C] mr-2"></i> 2. Giải pháp Kiến trúc Nhiệt đới Độc đáo
+                </h4>
+                <p class="text-gray-700 leading-relaxed">
+                    Dinh Độc Lập là ví dụ điển hình cho việc xử lý khí hậu nóng ẩm mưa nhiều của Sài Gòn mà không phụ thuộc hoàn toàn vào điều kiện nhân tạo:
+                </p>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2 leading-relaxed">
+                    <li><strong>Hệ mành trúc (Brise-soleil):</strong> Mặt tiền tòa nhà được bao bọc bởi hệ thống các ô bê tông đúc sẵn hình đốt trúc. Hệ mành này đóng vai trò như một bức màn chắn nắng gay gắt, giảm bức xạ nhiệt nhưng vẫn cho phép ánh sáng tự nhiên và gió trời xuyên qua.</li>
+                    <li><strong>Hành lang đệm (Balcony / Veranda):</strong> Bao quanh các phòng làm việc là hệ thống hành lang rộng. Lớp đệm này ngăn không cho mưa tạt và nắng chiếu trực tiếp vào không gian nội thất bên trong.</li>
+                    <li><strong>Thông gió tự nhiên:</strong> Nhờ thiết kế các khoảng trống, giếng trời và cửa mở ở hai mặt đối diện, không khí trong dinh luôn được đối lưu tự nhiên, giữ cho công trình luôn mát mẻ.</li>
+                    <li><strong>Kỹ thuật ngầm hiện đại:</strong> Dưới lòng đất của dinh là hệ thống hầm bêtông cốt thép kiên cố với đầy đủ trung tâm điều hành, máy phát điện và hệ thống thông gió độc lập.</li>
+                </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="space-y-3">
+                <h4 class="font-bold text-gray-900 text-lg flex items-center">
+                    <i class="fa-solid fa-om text-[#9B2C2C] mr-2"></i> 3. Dấu ấn văn hóa phương Đông trong kiến trúc
+                </h4>
+                <p class="text-gray-700 leading-relaxed">
+                    Một nét đặc biệt của Dinh Độc Lập là kiến trúc sư Ngô Viết Thụ không chỉ hướng đến công năng và vẻ đẹp hiện đại mà còn đưa triết lý phương Đông vào thiết kế:
+                </p>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2 leading-relaxed">
+                    <li><strong>Tính biểu tượng:</strong> Một số cách tổ chức hình khối và chi tiết trang trí được giải thích theo quan niệm truyền thống về sự hài hòa, trật tự và ý nghĩa văn hóa.</li>
+                    <li><strong>Sự hài hòa:</strong> Các yếu tố kiến trúc, ánh sáng, không gian và thiên nhiên được kết hợp nhằm tạo nên một tổng thể thống nhất.</li>
+                    <li><strong>Bản sắc dân tộc:</strong> Hệ thống rèm hoa đá cùng những chi tiết trang trí mang nét Á Đông giúp công trình không đơn thuần là một tòa nhà theo phong cách phương Tây.</li>
+                </ul>
+            </div>
+
+            <!-- Map -->
+            <div class="pt-4 border-t">
+                <h4 class="font-bold text-gray-800 mb-3"><i class="fa-solid fa-map-location-dot text-[#9B2C2C] mr-2"></i> Vị Trí Bản Đồ:</h4>
+                <div id="map" class="map-box rounded-lg border"></div>
+                <a href="https://www.google.com/maps/search/?api=1&query=10.7769,106.6953" target="_blank" class="block text-center py-2.5 bg-red-800 text-white font-bold rounded-lg hover:bg-red-900 transition text-sm mt-3">Mở Chỉ Đường Trên Google Maps</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-[#1A202C] text-gray-400 py-6 text-center text-xs">
+        <p>© 2026 Trang Thông Tin Di Tích Lịch Sử TP.HCM</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([10.7769, 106.6953], 16);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        L.marker([10.7769, 106.6953]).addTo(map).bindPopup('<b>Dinh Độc Lập</b>').openPopup();
+
+        let synth = window.speechSynthesis;
+        let utterance = null;
+        function speakText(text) {
+            if (!('speechSynthesis' in window)) return;
+            synth.cancel();
+            utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'vi-VN';
+            utterance.rate = 0.9;
+            synth.speak(utterance);
+        }
+        function stopSpeech() {
+            if (synth && (synth.speaking || synth.pending)) synth.cancel();
+        }
+    </script>
+</body>
+</html>
